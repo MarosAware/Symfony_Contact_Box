@@ -11,7 +11,6 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>Description</th>
@@ -20,23 +19,17 @@
                     </thead>
                     <tbody>
                     {% for contact in contacts %}
-                    <tr>
-
-                            <td>{{ contact.id }}</td>
+                        <tr>
                             <td><a href="{{ url('app_contact_showone', {'id': contact.id}) }}">{{ contact.name }}</a></td>
                             <td>{{ contact.surname }}</td>
                             <td>{{ contact.description }}</td>
                             <td><a class="btn btn-info" href={{ url('app_contact_edit', {'id': contact.id}) }}>EDIT</a></td>
                             <td><a class="btn btn-danger" href="{{ url('app_contact_delete', {'id': contact.id}) }}">DELETE</a></td>
-
-
-
-                    </tr>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-
 
 
         {% else %}

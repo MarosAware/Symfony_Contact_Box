@@ -11,7 +11,6 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>Description</th>
@@ -20,17 +19,11 @@
                     </thead>
                     <tbody>
                     <tr>
-                        {#{% for contact in contacts %}#}
-
-                            <td>{{ contact.id }}</td>
-                            <td>{{ contact.name }}</td>
-                            <td>{{ contact.surname }}</td>
-                            <td>{{ contact.description }}</td>
-                            <td><a class="btn btn-info" href={{ url('app_contact_edit', {'id': contact.id}) }}>EDIT</a></td>
-                            <td><a class="btn btn-danger" href="{{ url('app_contact_delete', {'id': contact.id}) }}">DELETE</a></td>
-
-
-                        {#{% endfor %}#}
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.surname }}</td>
+                        <td>{{ contact.description }}</td>
+                        <td><a class="btn btn-info" href={{ url('app_contact_edit', {'id': contact.id}) }}>EDIT</a></td>
+                        <td><a class="btn btn-danger" href="{{ url('app_contact_delete', {'id': contact.id}) }}">DELETE</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -44,37 +37,35 @@
                 <a class="btn btn-info" href={{ url('app_contact_edit', {'id': contact.id}) }}>Add address</a>
 
             {% else %}
-            <h2>Addresses:</h2>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>City</th>
-                        <th>Street</th>
-                        <th>House</th>
-                        <th>Flat</th>
-                        <th colspan="2">Operations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <h2>Addresses:</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Street</th>
+                            <th>House</th>
+                            <th>Flat</th>
+                            <th colspan="2">Operations</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
                         {% for address  in contact.addresses %}
-                        <tr>
-                        <td>{{ address.id }}</td>
-                        <td>{{ address.city }}</td>
-                        <td>{{ address.street }}</td>
-                        <td>{{ address.houseNr }}</td>
-                        <td>{{ address.flat }}</td>
-                        <td><a class="btn btn-info" href={{ url('app_address_edit', {'id': address.id}) }}>EDIT</a></td>
-                        <td><a class="btn btn-danger" href="{{ url('app_address_delete', {'id': address.id}) }}">DELETE</a></td>
-                        </tr>
+                            <tr>
+                                <td>{{ address.city }}</td>
+                                <td>{{ address.street }}</td>
+                                <td>{{ address.houseNr }}</td>
+                                <td>{{ address.flat }}</td>
+                                <td><a class="btn btn-info" href={{ url('app_address_edit', {'id': address.id}) }}>EDIT</a></td>
+                                <td><a class="btn btn-danger" href="{{ url('app_address_delete', {'id': address.id}) }}">DELETE</a></td>
+                            </tr>
 
                         {% endfor %}
 
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
 
 
             {% endif %}
@@ -94,7 +85,6 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th>Number</th>
                             <th>Type</th>
                             <th colspan="2">Operations</th>
@@ -104,7 +94,6 @@
 
                         {% for phone  in contact.phones %}
                             <tr>
-                                <td>{{ phone.id }}</td>
                                 <td>{{ phone.number }}</td>
                                 <td>{{ phone.type }}</td>
                                 <td><a class="btn btn-info" href={{ url('app_phone_edit', {'id': phone.id}) }}>EDIT</a></td>
@@ -131,7 +120,6 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th>Address</th>
                             <th>Type</th>
                             <th colspan="2">Operations</th>
@@ -141,7 +129,6 @@
 
                         {% for email  in contact.emails %}
                             <tr>
-                                <td>{{ email.id }}</td>
                                 <td>{{ email.address }}</td>
                                 <td>{{ email.type }}</td>
                                 <td><a class="btn btn-info" href={{ url('app_email_edit', {'id': email.id}) }}>EDIT</a></td>

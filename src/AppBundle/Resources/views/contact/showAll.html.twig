@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <a class="btn btn-success" href="{{ url('app_contact_new') }}">Create New Contact!</a>
+        <h1>All contact:</h1>
+        {% if contacts %}
+
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Description</th>
+                        <th colspan="2">Operations</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for contact in contacts %}
+                    <tr>
+
+                            <td>{{ contact.id }}</td>
+                            <td><a href="{{ url('app_contact_showone', {'id': contact.id}) }}">{{ contact.name }}</a></td>
+                            <td>{{ contact.surname }}</td>
+                            <td>{{ contact.description }}</td>
+                            <td><a class="btn btn-info" href={{ url('app_contact_edit', {'id': contact.id}) }}>EDIT</a></td>
+                            <td><a class="btn btn-danger" href="{{ url('app_contact_delete', {'id': contact.id}) }}">DELETE</a></td>
+
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        {% else %}
+            <p>No contact found.</p>
+            <a class="btn btn-primary" href="{{ url('app_contact_new') }}">Create Contact!</a>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
